@@ -5,11 +5,11 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section about">
-          <h3>About NeuroFi</h3>
+          <h3>About neurofi</h3>
           <p>NeuroFi combines AI technology with financial expertise to provide innovative solutions for modern financial challenges.</p>
           <div className="contact">
-            <p><i className="fas fa-map-marker-alt"></i> 123 Finance Street, Tech City</p>
-            <p><i className="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i className="fas fa-map-marker-alt"></i> neurofi hq, 17th cross road, hsr layout, bangalore</p>
+            <p><i className="fas fa-phone"></i> +91 98864 67701</p>
             <p><i className="fas fa-envelope"></i> info@neurofi.com</p>
           </div>
         </div>
@@ -33,7 +33,7 @@ export default function Footer() {
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <i className="fab fa-twitter"></i>
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/neurofi-in/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <i className="fab fa-linkedin-in"></i>
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -44,7 +44,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} NeuroFi. All Rights Reserved.</p>
+        <p>&copy; {new Date().getFullYear()} neurofi. All Rights Reserved.</p>
         <div className="footer-bottom-links">
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms of Service</a>

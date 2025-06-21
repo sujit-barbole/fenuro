@@ -5,13 +5,13 @@ export default function Hero() {
   const slides = [
     {
       image: '/images/hero-1.jpg',
-      title: 'Financial Solutions Powered by AI',
-      description: 'Transforming the way you manage finances with cutting-edge technology'
+      title: 'Wanna Reduce Your Debt?',
+      description: 'Be among the first to join our revolutionary debt settlement platform! Early access MVP launching soon - secure your spot now!'
     },
     {
       image: '/images/hero-2.jpg',
-      title: 'Smart Investment Strategies',
-      description: 'Maximize your returns with our data-driven investment recommendations'
+      title: 'Smart Financial Planning for Your Dreams',
+      description: 'From buying your dream home to planning that perfect vacation - get personalized advice for all your financial goals'
     },
     {
       image: '/images/hero-3.jpg',
@@ -48,7 +48,7 @@ export default function Hero() {
               <h1>{slide.title}</h1>
               <p>{slide.description}</p>
               <div className="cta-buttons">
-                <a href="#contact" className="btn primary">Get Started</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVvrwCS5ZtPBgdOftjS6u-PxyxeSoRMXBJLwf3I0XBWtcsuw/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="btn primary">Get Early Access</a>
                 <a href="#services" className="btn secondary">Learn More</a>
               </div>
             </div>

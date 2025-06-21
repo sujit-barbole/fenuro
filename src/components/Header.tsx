@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <h1>NeuroFi</h1>
+        <h1>neurofi</h1>
       </div>
       
       <nav className={`nav ${menuOpen ? 'open' : ''}`}>

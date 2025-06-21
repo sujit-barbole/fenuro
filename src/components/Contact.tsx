@@ -32,7 +32,7 @@ export default function Contact() {
         <div className="contact-info">
           <div className="info-item">
             <i className="fas fa-map-marker-alt"></i>
-            <p>123 Finance Street, Tech City</p>
+            <p>neurofi hq, 17th cross road, hsr layout, bangalore</p>
           </div>
           <div className="info-item">
             <i className="fas fa-envelope"></i>
@@ -40,7 +40,7 @@ export default function Contact() {
           </div>
           <div className="info-item">
             <i className="fas fa-phone"></i>
-            <p>(123) 456-7890</p>
+            <p>+91 98864 67701</p>
           </div>
         </div>
         

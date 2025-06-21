@@ -4,33 +4,54 @@ export default function About() {
   return (
     <section id="about" className="about">
       <div className="section-header">
-        <h2>About NeuroFi</h2>
+        <h2>About neurofi</h2>
       </div>
       
       <div className="about-content">
         <div className="about-image">
-          {/* You can add an actual image here */}
-          <div className="placeholder-image"></div>
+          <div className="stats-infographic">
+            <div className="stat-card primary">
+              <div className="stat-number">70%</div>
+              <div className="stat-label">Average Debt Reduction</div>
+              <div className="stat-icon">📉</div>
+            </div>
+            
+            <div className="stat-card secondary">
+              <div className="stat-number">500+</div>
+              <div className="stat-label">Families Helped</div>
+              <div className="stat-icon">👨‍👩‍👧‍👦</div>
+            </div>
+            
+            <div className="stat-card tertiary">
+              <div className="stat-number">100%</div>
+              <div className="stat-label">Certified Planners</div>
+              <div className="stat-icon">🎓</div>
+            </div>
+            
+            <div className="stat-card accent">
+              <div className="stat-number">24/7</div>
+              <div className="stat-label">Support Available</div>
+              <div className="stat-icon">🔄</div>
+            </div>
+          </div>
         </div>
         
         <div className="about-text">
-          <h3>Our Mission</h3>
-          <p>
-            At NeuroFi, we're on a mission to democratize access to advanced financial tools through 
-            artificial intelligence and machine learning technologies.
-          </p>
-          
-          <h3>Our Story</h3>
-          <p>
-            Founded in 2023, NeuroFi emerged from a vision to combine neuroscience principles with 
-            financial technology, creating intuitive solutions that adapt to each user's unique needs.
-          </p>
-          
-          <h3>Our Team</h3>
-          <p>
-            Our diverse team of financial experts, data scientists, and technology innovators work 
-            together to build the future of financial services.
-          </p>
+          <div className="vision-mission-section">
+            <div className="vision-card">
+              <h3>Vision Statement</h3>
+              <p>
+                To be the most trusted financial planning platform that empowers every household—regardless of income level—to achieve long-term financial well-being, stability, and independence.
+              </p>
+            </div>
+            
+            <div className="mission-card">
+              <h3>Mission Statement</h3>
+              <p>
+                To deliver comprehensive, unbiased, and practical financial planning solutions that help individuals and families reduce debt, optimize resources, and build a secure financial future—through structured guidance, personalized insights, and a holistic approach to money management.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

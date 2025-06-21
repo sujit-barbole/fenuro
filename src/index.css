@@ -57,3 +57,47 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* Cool Section Title Styles - matching header logo */
+.section-header h2,
+.section-header h3,
+.footer-section h3 {
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+  text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.section-header h2:hover,
+.section-header h3:hover,
+.footer-section h3:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+  animation-play-state: paused;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.3));
+  }
+  to {
+    filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.6));
+  }
+}
