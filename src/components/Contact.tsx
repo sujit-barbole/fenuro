@@ -40,7 +40,7 @@ export default function Contact() {
           </div>
           <div className="info-item">
             <i className="fas fa-phone"></i>
-            <p>+91 98864 67701</p>
+            <p>9113662144</p>
           </div>
         </div>
         

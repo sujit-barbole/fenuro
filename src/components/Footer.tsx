@@ -9,7 +9,7 @@ export default function Footer() {
           <p>NeuroFi combines AI technology with debt management expertise to provide innovative debt settlement and restructuring solutions for modern financial challenges.</p>
           <div className="contact">
             <p><i className="fas fa-map-marker-alt"></i> neurofi hq, 17th cross road, hsr layout, bangalore</p>
-            <p><i className="fas fa-phone"></i> +91 98864 67701</p>
+            <p><i className="fas fa-phone"></i> 9113662144</p>
             <p><i className="fas fa-envelope"></i> info@neurofi.com</p>
           </div>
         </div>
