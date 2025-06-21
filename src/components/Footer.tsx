@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-content">
         <div className="footer-section about">
           <h3>About neurofi</h3>
-          <p>NeuroFi combines AI technology with financial expertise to provide innovative solutions for modern financial challenges.</p>
+          <p>NeuroFi combines AI technology with debt management expertise to provide innovative debt settlement and restructuring solutions for modern financial challenges.</p>
           <div className="contact">
             <p><i className="fas fa-map-marker-alt"></i> neurofi hq, 17th cross road, hsr layout, bangalore</p>
             <p><i className="fas fa-phone"></i> +91 98864 67701</p>

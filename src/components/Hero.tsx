@@ -10,8 +10,8 @@ export default function Hero() {
     },
     {
       image: '/images/hero-2.jpg',
-      title: 'Smart Financial Planning for Your Dreams',
-      description: 'From buying your dream home to planning that perfect vacation - get personalized advice for all your financial goals'
+      title: 'Expert Debt Management Solutions',
+      description: 'Get personalized debt settlement strategies and financial guidance to achieve your debt-free goals'
     },
     {
       image: '/images/hero-3.jpg',
