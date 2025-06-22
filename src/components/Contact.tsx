@@ -1,26 +1,6 @@
-import { useState } from 'react'
 import '../styles/Contact.css'
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // In the future, this will connect to your backend
-    console.log('Form submitted:', formData)
-    alert('Thanks for contacting us! We will get back to you soon.')
-    setFormData({ name: '', email: '', message: '' })
-  }
-  
   return (
     <section id="contact" className="contact">
       <div className="section-header">
@@ -44,44 +24,24 @@ export default function Contact() {
           </div>
         </div>
         
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              value={formData.name} 
-              onChange={handleChange} 
-              required 
-            />
+        <div className="contact-form">
+          <div className="form-content">
+            <div className="form-header">
+              <h3>Ready to get started?</h3>
+              <p>Fill out our detailed questionnaire to help us understand your financial situation better. Our team will review your information and create a personalized debt management plan tailored to your specific needs.</p>
+            </div>
+            <div className="button-container">
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLScaC2HzN8R51L0TFc2B_RdNEXdtWO4jNONQZLOubgW-SetQCw/viewform" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn primary"
+              >
+                Contact Us Now
+              </a>
+            </div>
           </div>
-          
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              value={formData.email} 
-              onChange={handleChange} 
-              required 
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea 
-              id="message" 
-              name="message" 
-              value={formData.message} 
-              onChange={handleChange} 
-              required 
-            ></textarea>
-          </div>
-          
-          <button type="submit" className="btn primary">Send Message</button>
-        </form>
+        </div>
       </div>
     </section>
   )

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="footer-content">
         <div className="footer-section about">
           <h3>About neurofi</h3>
-          <p>NeuroFi combines AI technology with debt management expertise to provide innovative debt settlement and restructuring solutions for modern financial challenges.</p>
+          <p>NeuroFi provides expert-driven debt settlement and restructuring solutions tailored to modern financial challenges.</p>
           <div className="contact">
             <p><i className="fas fa-map-marker-alt"></i> neurofi hq, 17th cross road, hsr layout, bangalore</p>
             <p><i className="fas fa-phone"></i> 9113662144</p>
@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-section social">
-          <h3>Connect With Us</h3>
+          <h3>Follow neurofi</h3>
           <div className="social-links">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <i className="fab fa-facebook-f"></i>
@@ -36,7 +36,7 @@ export default function Footer() {
             <a href="https://www.linkedin.com/company/neurofi-in/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <i className="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/neurofi.in?igsh=c3JsNG94MzR6ZWs0" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i className="fab fa-instagram"></i>
             </a>
           </div>

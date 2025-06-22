@@ -5,7 +5,7 @@ export default function Hero() {
     <section id="home" className="hero">
       <div className="hero-slide active" style={{ backgroundImage: `url('/images/hero-1.jpg')` }}>
         <div className="hero-content">
-          <h1>Wanna Reduce Your Debt?</h1>
+          <h1>Struggling with debt? Let us help you find a way out</h1>
           <p>Be among the first to join our revolutionary debt settlement platform! Early access MVP launching soon - secure your spot now!</p>
           <div className="cta-buttons">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVvrwCS5ZtPBgdOftjS6u-PxyxeSoRMXBJLwf3I0XBWtcsuw/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="btn primary">Get Early Access</a>
