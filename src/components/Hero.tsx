@@ -8,7 +8,7 @@ export default function Hero() {
           <h1>Struggling with debt? Let us help you find a way out</h1>
           <p>Be among the first to join our revolutionary debt settlement platform! Early access MVP launching soon - secure your spot now!</p>
           <div className="cta-buttons">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVvrwCS5ZtPBgdOftjS6u-PxyxeSoRMXBJLwf3I0XBWtcsuw/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="btn primary">Get Early Access</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScaC2HzN8R51L0TFc2B_RdNEXdtWO4jNONQZLOubgW-SetQCw/viewform?usp=sharing&ouid=103274631790031636089" target="_blank" rel="noopener noreferrer" className="btn primary">Get Early Access</a>
             <a href="#services" className="btn secondary">Learn More</a>
           </div>
         </div>
