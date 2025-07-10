@@ -143,6 +143,26 @@
   border-color: rgba(255, 255, 255, 1);
 }
 
+.hero .btn.early-access {
+  background: #fff !important;
+  color: #6b7fd7 !important;
+  border: none !important;
+  border-radius: 50px !important;
+  box-shadow: 0 8px 32px 0 rgba(102, 126, 234, 0.18) !important;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  padding: 1.1rem 3rem !important;
+  transition: all 0.3s cubic-bezier(.4,2,.3,1);
+}
+
+.hero .btn.early-access:hover {
+  background: #f8f9fa !important;
+  color: #5a67d8 !important;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.25);
+}
+
 /* Floating particles effect */
 .hero::after {
   content: '';
