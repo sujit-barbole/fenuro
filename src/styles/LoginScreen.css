@@ -1,0 +1,132 @@
+/* LoginScreen specific styles */
+.login-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e0e7ef 100%);
+  padding: 0;
+  padding-top: 80px;
+}
+
+.login-form {
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(60, 72, 88, 0.12);
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-header.section-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #2d3748;
+  letter-spacing: -1px;
+}
+
+.form-header.section-header p {
+  font-size: 1.1rem;
+  color: #718096;
+  margin-bottom: 0;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-form input {
+  padding: 1.1rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 1.08rem;
+  background: #f7fafc;
+  transition: border 0.2s;
+}
+
+.login-form input:focus {
+  border: 1.5px solid #3182ce;
+  outline: none;
+  background: #fff;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, #3182ce 0%, #5a67d8 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(49, 130, 206, 0.08);
+}
+
+.btn.primary:disabled {
+  background: #cbd5e1;
+  color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #e53e3e;
+  text-align: center;
+  font-size: 1rem;
+  background: #fff5f5;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+
+.form-success {
+  color: #38a169;
+  text-align: center;
+  font-size: 1rem;
+  background: #f0fff4;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+
+.auth-switch-section {
+  margin: 1.5rem auto 0 auto;
+  max-width: 400px;
+  text-align: center;
+  font-size: 1rem;
+  color: #4a5568;
+  background: transparent;
+}
+
+.auth-switch-link {
+  color: #3182ce;
+  text-decoration: underline;
+  font-weight: 600;
+  margin-left: 0.25rem;
+  transition: color 0.2s;
+}
+.auth-switch-link:hover {
+  color: #2b6cb0;
+}
+
+@media (max-width: 600px) {
+  .login-form {
+    padding: 1.2rem 0.5rem;
+    border-radius: 10px;
+    gap: 1.2rem;
+  }
+  .form-header.section-header h2 {
+    font-size: 1.4rem;
+  }
+  .form-fields {
+    gap: 0.8rem;
+  }
+  .login-section {
+    padding: 0;
+  }
+} 

@@ -1,0 +1,133 @@
+/* UserSidebarLayout styles */
+body, .app, main, .sidebar-layout {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.sidebar-layout {
+  position: relative;
+  top: 0;
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6fa;
+}
+
+.sidebar {
+  width: 260px;
+  background: #181e2a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 2rem 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 2rem 1.5rem 2rem;
+  border-bottom: 1px solid #232a3a;
+}
+
+.sidebar-avatar {
+  width: 48px;
+  height: 48px;
+  background: #4f5d75;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sidebar-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0 0 0;
+}
+
+.sidebar-section {
+  margin-bottom: 2.5rem;
+  padding-left: 2rem;
+}
+
+.sidebar-section-title {
+  font-size: 0.95rem;
+  color: #a0aec0;
+  margin-bottom: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.08rem;
+  padding: 0.7rem 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.18s, background 0.18s;
+  border-radius: 6px;
+  width: 100%;
+}
+.sidebar-link:hover, .sidebar-link.active {
+  color: #63b3ed;
+  background: #232a3a;
+}
+
+.sidebar-link.logout {
+  color: #f56565;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.sidebar-link:focus, .sidebar-link.active {
+  outline: none;
+  background: rgba(102, 126, 234, 0.08);
+  border-left: 4px solid #667eea;
+  color: #63b3ed;
+}
+
+.sidebar-content {
+  flex: 1;
+  background: #f4f6fa;
+  padding: 1rem 2.5rem 2.5rem 2rem;
+  min-width: 0;
+}
+
+.sidebar-content h2 {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 70px;
+    padding: 0;
+  }
+  .sidebar-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .sidebar-title {
+    font-size: 0.9rem;
+  }
+  .sidebar-section {
+    padding-left: 0.5rem;
+  }
+  .sidebar-content {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+} 
