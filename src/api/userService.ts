@@ -48,4 +48,34 @@ export async function uploadDocuments({ userId, aadhaarcard, pancard, loanstatem
   } catch (error: any) {
     throw new Error(error.message || 'Document upload failed');
   }
+}
+
+export async function fetchUserDocuments(userId: number) {
+  try {
+    const response = await fetch(`${apiConfig.baseURL}/documents/${userId}`, {
+      method: 'GET',
+      headers: apiConfig.headers,
+    });
+    if (!response.ok) {
+      throw new Error('Failed to fetch documents');
+    }
+    return await response.json();
+  } catch (error: any) {
+    throw new Error(error.message || 'Failed to fetch documents');
+  }
+}
+
+export async function fetchUserDetails(userId: number) {
+  try {
+    const response = await fetch(`${apiConfig.baseURL}/auth/user/${userId}`, {
+      method: 'GET',
+      headers: apiConfig.headers,
+    });
+    if (!response.ok) {
+      throw new Error('Failed to fetch user details');
+    }
+    return await response.json();
+  } catch (error: any) {
+    throw new Error(error.message || 'Failed to fetch user details');
+  }
 } 

@@ -25,8 +25,9 @@ function AppRoutes({ user, setUser }: { user: any, setUser: (u: any) => void }) 
           <Route path="dashboard" element={<UserDashboard user={user} />} />
           <Route path="profile" element={<UserProfile />} />
         </Route>
-        <Route path="/consultant/*" element={<ConsultantSidebarLayout />}>
+        <Route path="/consultant/*" element={<ConsultantSidebarLayout setUser={setUser} />}>
           <Route path="dashboard" element={<ConsultantDashboard user={user} />} />
+          <Route path="profile" element={<UserProfile />} />
         </Route>
         <Route path="*" element={<Navigate to={`/${role.toLowerCase()}/dashboard`} replace />} />
       </Routes>

@@ -1,14 +1,41 @@
 import { Link, useNavigate, Outlet } from 'react-router-dom';
+import { useState } from 'react';
 import '../styles/ConsultantSidebarLayout.css';
 
-export default function ConsultantSidebarLayout() {
+function LogoutModal({ open, onConfirm, onCancel }: { open: boolean, onConfirm: () => void, onCancel: () => void }) {
+  if (!open) return null;
+  return (
+    <div style={{
+      position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+      background: 'rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 9999
+    }}>
+      <div style={{ background: '#fff', borderRadius: 12, padding: '2rem 2.5rem', boxShadow: '0 2px 16px #232a3a33', minWidth: 320 }}>
+        <h3 style={{ marginBottom: 16 }}>Confirm Logout</h3>
+        <p style={{ marginBottom: 24 }}>Are you sure you want to logout?</p>
+        <div style={{ display: 'flex', gap: 16, justifyContent: 'flex-end' }}>
+          <button onClick={onCancel} style={{ padding: '0.5rem 1.2rem', borderRadius: 6, border: 'none', background: '#e2e8f0', color: '#2d3748', fontWeight: 600, cursor: 'pointer' }}>Cancel</button>
+          <button onClick={onConfirm} style={{ padding: '0.5rem 1.2rem', borderRadius: 6, border: 'none', background: '#f56565', color: '#fff', fontWeight: 600, cursor: 'pointer' }}>Logout</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function ConsultantSidebarLayout({ setUser }: { setUser: (u: any) => void }) {
   const navigate = useNavigate();
-  const handleLogout = () => {
+  const [showLogout, setShowLogout] = useState(false);
+  const handleLogout = () => setShowLogout(true);
+  const confirmLogout = () => {
     localStorage.removeItem('user');
-    navigate('/login');
+    setUser(null);
+    setShowLogout(false);
+    navigate('/');
   };
+  const cancelLogout = () => setShowLogout(false);
+  
   return (
     <div className="sidebar-layout">
+      <LogoutModal open={showLogout} onConfirm={confirmLogout} onCancel={cancelLogout} />
       <aside className="sidebar">
         <div className="sidebar-header">
           <div className="sidebar-avatar">C</div>
@@ -18,7 +45,6 @@ export default function ConsultantSidebarLayout() {
           <div className="sidebar-section">
             <div className="sidebar-section-title">MAIN</div>
             <Link to="/consultant/dashboard" className="sidebar-link">Dashboard</Link>
-            <Link to="/consultant/assigned-users" className="sidebar-link">Assigned Users</Link>
           </div>
           <div className="sidebar-section">
             <div className="sidebar-section-title">ACCOUNT</div>

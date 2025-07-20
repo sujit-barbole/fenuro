@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Stepper.css';
 import Services from '../components/Services';
-import { changeUserStatus, uploadDocuments } from '../api/userService';
+import { changeUserStatus, uploadDocuments, fetchUserDocuments, fetchUserDetails } from '../api/userService';
+import { apiConfig } from '../api/apiConfig';
 
 const dummyLoans = [
   {
@@ -64,6 +65,10 @@ export default function UserDashboard({ user }: { user?: any }) {
   const [loanFile, setLoanFile] = useState<File | null>(null);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showPaymentSuccess, setShowPaymentSuccess] = useState(false);
+  const [documents, setDocuments] = useState<any>(null);
+  const [documentsLoading, setDocumentsLoading] = useState(false);
+  const [bankResponseData, setBankResponseData] = useState<any>(null);
+  const [bankResponseLoading, setBankResponseLoading] = useState(false);
   // Map each status to its step index (1-based)
   const statusToStep: { [key: string]: number } = {
     REGISTRATION_COMPLETED: 1,
@@ -79,6 +84,32 @@ export default function UserDashboard({ user }: { user?: any }) {
   };
   const userStatus = localUser?.userStatus;
   const currentStep = statusToStep[userStatus] ?? 1;
+
+  async function loadUserDocuments() {
+    setDocumentsLoading(true);
+    try {
+      const documentsData = await fetchUserDocuments(localUser.id);
+      setDocuments(documentsData);
+    } catch (err: any) {
+      console.error('Failed to fetch documents:', err);
+      // Don't show error to user, just log it
+    } finally {
+      setDocumentsLoading(false);
+    }
+  }
+
+  async function fetchBankResponseData() {
+    setBankResponseLoading(true);
+    try {
+      const userData = await fetchUserDetails(localUser.id);
+      setBankResponseData(userData);
+    } catch (err: any) {
+      console.error('Failed to fetch bank response data:', err);
+      // Don't show error to user, just log it
+    } finally {
+      setBankResponseLoading(false);
+    }
+  }
 
   async function handleRequestConsultation() {
     setLoading(true);
@@ -349,6 +380,174 @@ export default function UserDashboard({ user }: { user?: any }) {
               We will now communicate with your banks. This process may take a few days.<br />
               For any queries, please contact us below.
             </div>
+
+            {/* Documents Section */}
+            <div style={{ 
+              background: '#f8fafd', 
+              borderRadius: 12, 
+              padding: '1.5rem', 
+              marginBottom: 20,
+              textAlign: 'left'
+            }}>
+              <div style={{ fontWeight: 700, color: '#2d3748', fontSize: 16, marginBottom: 16, textAlign: 'center' }}>
+                📋 Your Uploaded Documents
+              </div>
+              
+              {documentsLoading ? (
+                <div style={{ color: '#718096', fontSize: 14, textAlign: 'center' }}>
+                  Loading documents...
+                </div>
+              ) : documents ? (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  {documents.AADHAARCARD && (
+                    <div style={{ 
+                      background: '#fff', 
+                      padding: '12px', 
+                      borderRadius: 8, 
+                      border: '1px solid #e2e8f0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 12
+                    }}>
+                      <div style={{ 
+                        width: 32, 
+                        height: 32, 
+                        background: '#667eea', 
+                        borderRadius: 6,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        fontWeight: 700,
+                        fontSize: 14
+                      }}>
+                        🆔
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontWeight: 600, color: '#2d3748', fontSize: 14 }}>Aadhaar Card</div>
+                        <a 
+                          href={documents.AADHAARCARD} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          style={{ 
+                            color: '#667eea', 
+                            fontSize: 12, 
+                            textDecoration: 'none',
+                            fontWeight: 500
+                          }}
+                        >
+                          View Document →
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {documents.PANCARD && (
+                    <div style={{ 
+                      background: '#fff', 
+                      padding: '12px', 
+                      borderRadius: 8, 
+                      border: '1px solid #e2e8f0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 12
+                    }}>
+                      <div style={{ 
+                        width: 32, 
+                        height: 32, 
+                        background: '#667eea', 
+                        borderRadius: 6,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        fontWeight: 700,
+                        fontSize: 14
+                      }}>
+                        🆔
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontWeight: 600, color: '#2d3748', fontSize: 14 }}>PAN Card</div>
+                        <a 
+                          href={documents.PANCARD} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          style={{ 
+                            color: '#667eea', 
+                            fontSize: 12, 
+                            textDecoration: 'none',
+                            fontWeight: 500
+                          }}
+                        >
+                          View Document →
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {documents.LOAN_STATEMENT && (
+                    <div style={{ 
+                      background: '#fff', 
+                      padding: '12px', 
+                      borderRadius: 8, 
+                      border: '1px solid #e2e8f0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 12
+                    }}>
+                      <div style={{ 
+                        width: 32, 
+                        height: 32, 
+                        background: '#667eea', 
+                        borderRadius: 6,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        fontWeight: 700,
+                        fontSize: 14
+                      }}>
+                        📄
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontWeight: 600, color: '#2d3748', fontSize: 14 }}>Loan Statement</div>
+                        <a 
+                          href={documents.LOAN_STATEMENT} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          style={{ 
+                            color: '#667eea', 
+                            fontSize: 12, 
+                            textDecoration: 'none',
+                            fontWeight: 500
+                          }}
+                        >
+                          View Document →
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <button
+                  onClick={loadUserDocuments}
+                  style={{
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: 6,
+                    padding: '8px 16px',
+                    fontWeight: 600,
+                    fontSize: 14,
+                    cursor: 'pointer',
+                    width: '100%',
+                  }}
+                >
+                  📋 View My Documents
+                </button>
+              )}
+            </div>
+
             <div style={{
               background: '#f8fafd',
               borderRadius: 8,
@@ -439,12 +638,143 @@ export default function UserDashboard({ user }: { user?: any }) {
             <div style={{ fontSize: 20, fontWeight: 600, color: '#764ba2', marginBottom: 12 }}>
               The bank has agreed to your settlement request!
             </div>
+            
+            {bankResponseLoading ? (
+              <div style={{ color: '#718096', fontSize: 15, marginBottom: 18 }}>
+                Loading bank response...
+              </div>
+            ) : bankResponseData ? (
+              <>
+                {/* Bank Response Document */}
+                {bankResponseData.bankResponse && (
+                  <div style={{ 
+                    background: '#f8fafd', 
+                    borderRadius: 12, 
+                    padding: '1.5rem', 
+                    marginBottom: 20,
+                    textAlign: 'left'
+                  }}>
+                    <div style={{ fontWeight: 700, color: '#2d3748', fontSize: 16, marginBottom: 16, textAlign: 'center' }}>
+                      📄 Bank Response Document
+                    </div>
+                    <div style={{ 
+                      background: '#fff', 
+                      padding: '12px', 
+                      borderRadius: 8, 
+                      border: '1px solid #e2e8f0',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 12
+                    }}>
+                      <div style={{ 
+                        width: 32, 
+                        height: 32, 
+                        background: '#667eea', 
+                        borderRadius: 6,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#fff',
+                        fontWeight: 700,
+                        fontSize: 14
+                      }}>
+                        📄
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontWeight: 600, color: '#2d3748', fontSize: 14 }}>Bank Response</div>
+                        <a 
+                          href={bankResponseData.bankResponse} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          style={{ 
+                            color: '#667eea', 
+                            fontSize: 12, 
+                            textDecoration: 'none',
+                            fontWeight: 500
+                          }}
+                        >
+                          View Document →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Bank Response Remarks */}
+                {bankResponseData.bankResponseRemarks && (
+                  <div style={{ 
+                    background: '#f8fafd', 
+                    borderRadius: 12, 
+                    padding: '1.5rem', 
+                    marginBottom: 20,
+                    textAlign: 'left'
+                  }}>
+                    <div style={{ fontWeight: 700, color: '#2d3748', fontSize: 16, marginBottom: 12 }}>
+                      💬 Bank Remarks
+                    </div>
+                    <div style={{ 
+                      background: '#fff', 
+                      padding: '16px', 
+                      borderRadius: 8, 
+                      border: '1px solid #e2e8f0',
+                      color: '#2d3748',
+                      fontSize: 14,
+                      lineHeight: 1.5
+                    }}>
+                      {bankResponseData.bankResponseRemarks}
+                    </div>
+                  </div>
+                )}
+
+                {/* Payment Amount */}
+                {bankResponseData.paymentAmount && (
+                  <div style={{ 
+                    background: '#f8fafd', 
+                    borderRadius: 12, 
+                    padding: '1.5rem', 
+                    marginBottom: 20,
+                    textAlign: 'center'
+                  }}>
+                    <div style={{ fontWeight: 700, color: '#2d3748', fontSize: 16, marginBottom: 12 }}>
+                      💰 Settlement Amount
+                    </div>
+                    <div style={{ 
+                      background: '#fff', 
+                      padding: '16px', 
+                      borderRadius: 8, 
+                      border: '1px solid #e2e8f0',
+                      fontSize: 24,
+                      fontWeight: 700,
+                      color: '#764ba2'
+                    }}>
+                      ₹{bankResponseData.paymentAmount.toLocaleString()}
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <button
+                onClick={fetchBankResponseData}
+                style={{
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: 6,
+                  padding: '8px 16px',
+                  fontWeight: 600,
+                  fontSize: 14,
+                  cursor: 'pointer',
+                  marginBottom: 20,
+                }}
+              >
+                📄 Load Bank Response
+              </button>
+            )}
+
             <div style={{ color: '#718096', fontSize: 15, marginBottom: 18 }}>
-              Terms & Conditions: <br />
-              <span style={{ color: '#2d3748', fontWeight: 500 }}>
-                (Bank's terms and conditions will be displayed here. Please review them carefully before proceeding.)
-              </span>
+              Please review the bank response and settlement amount carefully before proceeding.
             </div>
+            
             <button
               style={{
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -461,7 +791,7 @@ export default function UserDashboard({ user }: { user?: any }) {
                 transition: 'background 0.2s, color 0.2s',
               }}
               onClick={() => setShowPaymentModal(true)}
-              disabled={loading}
+              disabled={loading || !bankResponseData}
             >
               Proceed to Payment
             </button>
@@ -574,7 +904,9 @@ export default function UserDashboard({ user }: { user?: any }) {
                   <div style={{ fontWeight: 600, color: '#2d3748', fontSize: 17, marginBottom: 10 }}>Settlement Summary</div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
                     <span style={{ color: '#718096' }}>Amount Due:</span>
-                    <span style={{ color: '#764ba2', fontWeight: 700 }}>₹1,00,000</span>
+                    <span style={{ color: '#764ba2', fontWeight: 700 }}>
+                      ₹{bankResponseData?.paymentAmount ? bankResponseData.paymentAmount.toLocaleString() : '1,00,000'}
+                    </span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
                     <span style={{ color: '#718096' }}>Bank Name:</span>
@@ -608,7 +940,7 @@ export default function UserDashboard({ user }: { user?: any }) {
                     width: '100%',
                   }}
                 >
-                  Pay ₹1,00,000
+                  Pay ₹{bankResponseData?.paymentAmount ? bankResponseData.paymentAmount.toLocaleString() : '1,00,000'}
                 </button>
               </>
             ) : (

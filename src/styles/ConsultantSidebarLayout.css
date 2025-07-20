@@ -1,9 +1,15 @@
 /* ConsultantSidebarLayout styles */
+body, .app, main, .sidebar-layout {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 .sidebar-layout {
+  position: relative;
+  top: 0;
   display: flex;
   min-height: 100vh;
   background: #f4f6fa;
-  margin-top: 80px;
 }
 
 .sidebar {
@@ -87,11 +93,22 @@
   margin-top: 0.5rem;
 }
 
+.sidebar-link:focus, .sidebar-link.active {
+  outline: none;
+  background: rgba(102, 126, 234, 0.08);
+  border-left: 4px solid #667eea;
+  color: #63b3ed;
+}
+
 .sidebar-content {
   flex: 1;
   background: #f4f6fa;
-  padding: 2.5rem 2.5rem 2.5rem 2rem;
+  padding: 1rem 2.5rem 2.5rem 2rem;
   min-width: 0;
+}
+
+.sidebar-content h2 {
+  margin-top: 1.5rem;
 }
 
 @media (max-width: 900px) {
